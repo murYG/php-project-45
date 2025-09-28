@@ -1,10 +1,15 @@
 {
     "name": "hexlet/code",
+    "description": "hexlet, project 1 'brain games'",
     "authors": [
         {
             "name": "murYG",
             "email": "mur@jinr.ru"
         }
     ],
+	"license": ["proprietary"],
+	"bin": [
+		"bin/brain-games"
+	],
     "require": {}
 }
