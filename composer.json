@@ -10,7 +10,8 @@
 	"license": ["proprietary"],
 	"bin": [
 		"bin/brain-games",
-		"bin/brain-even"
+		"bin/brain-even",
+		"bin/brain-calc"
 	],
     "require": {
         "wp-cli/php-cli-tools": "^0.12.6"
@@ -18,7 +19,9 @@
     "autoload": {
         "files": [
             "src/Cli.php",
-            "src/BrainGames.php"
+            "src/Engine.php",
+            "src/Games/Even.php",
+            "src/Games/Calc.php"
         ]
     },
     "require-dev": {
