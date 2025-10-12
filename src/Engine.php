@@ -14,10 +14,10 @@ function start(array $game): void
     line($game['task']);
 
     $result = true;
-    $gameNamespace = $game['namespace'];
+    $gameNamespace = $game['params'];
     $numberOfGames = 3;
     for ($i = 1; $i <= $numberOfGames; $i++) {
-        $params = call_user_func("$gameNamespace\\getParams");
+        $params = call_user_func($gameNamespace);
 
         $questionText = $params['question'];
         $correctAnswer = $params['answer'];

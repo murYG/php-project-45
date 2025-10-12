@@ -6,20 +6,22 @@ function start(): void
 {
     $game = [];
     $game['task'] = "Find the greatest common divisor of given numbers.";
-    $game['namespace'] = __NAMESPACE__;
+    $game['params'] = getParams();
 
     \BrainGames\Engine\start($game);
 }
 
-function getParams(): array
+function getParams(): object
 {
-    $operand1 = random_int(1, 50);
-    $operand2 = random_int(1, 50);
+    return function (): array {
+        $operand1 = random_int(1, 50);
+        $operand2 = random_int(1, 50);
 
-    $correctAnswer = (string) gcd($operand1, $operand2);
-    $questionText = "$operand1 $operand2";
+        $correctAnswer = (string) gcd($operand1, $operand2);
+        $questionText = "$operand1 $operand2";
 
-    return ['question' => $questionText, 'answer' => $correctAnswer];
+        return ['question' => $questionText, 'answer' => $correctAnswer];
+    };
 }
 
 function gcd(int $a, int $b): int

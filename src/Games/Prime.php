@@ -6,20 +6,22 @@ function start(): void
 {
     $game = [];
     $game['task'] = "Answer \"yes\" if given number is prime. Otherwise answer \"no\".";
-    $game['namespace'] = __NAMESPACE__;
+    $game['params'] = getParams();
 
     \BrainGames\Engine\start($game);
 }
 
-function getParams(): array
+function getParams(): object
 {
-    $number = random_int(0, 50);
-    $isPrime = isPrime($number);
+    return function (): array {
+        $number = random_int(0, 50);
+        $isPrime = isPrime($number);
 
-    $correctAnswer = $isPrime ? 'yes' : 'no';
-    $questionText = "$number";
+        $correctAnswer = $isPrime ? 'yes' : 'no';
+        $questionText = "$number";
 
-    return ['question' => $questionText, 'answer' => $correctAnswer];
+        return ['question' => $questionText, 'answer' => $correctAnswer];
+    };
 }
 
 function isPrime(int $number): bool

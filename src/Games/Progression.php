@@ -6,25 +6,27 @@ function start(): void
 {
     $game = [];
     $game['task'] = "What number is missing in the progression?";
-    $game['namespace'] = __NAMESPACE__;
+    $game['params'] = getParams();
 
     \BrainGames\Engine\start($game);
 }
 
-function getParams(): array
+function getParams(): object
 {
-    $progressionLength = random_int(5, 15);
-    $progressionStep = random_int(1, 10);
-    $progressionStart = random_int(1, 10);
-    $missingIndex = random_int(0, $progressionLength - 1);
+    return function (): array {
+        $progressionLength = random_int(5, 15);
+        $progressionStep = random_int(1, 10);
+        $progressionStart = random_int(1, 10);
+        $missingIndex = random_int(0, $progressionLength - 1);
 
-    $progression = generateProgression($progressionStart, $progressionLength, $progressionStep);
+        $progression = generateProgression($progressionStart, $progressionLength, $progressionStep);
 
-    $correctAnswer = (string) $progression[$missingIndex];
-    $progression[$missingIndex] = '..';
-    $questionText = implode(' ', $progression);
+        $correctAnswer = (string) $progression[$missingIndex];
+        $progression[$missingIndex] = '..';
+        $questionText = implode(' ', $progression);
 
-    return ['question' => $questionText, 'answer' => $correctAnswer];
+        return ['question' => $questionText, 'answer' => $correctAnswer];
+    };
 }
 
 function generateProgression(int $start, int $length, int $step): array

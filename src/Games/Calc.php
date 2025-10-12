@@ -6,24 +6,26 @@ function start(): void
 {
     $game = [];
     $game['task'] = "What is the result of the expression?";
-    $game['namespace'] = __NAMESPACE__;
+    $game['params'] = getParams();
 
     \BrainGames\Engine\start($game);
 }
 
-function getParams(): array
+function getParams(): object
 {
-    $operand1 = random_int(0, 20);
-    $operand2 = random_int(0, 20);
-    $operatorIndex = random_int(0, 2);
-    $arOperator = ["+", "-", "*"];
+    return function (): array {
+        $operand1 = random_int(0, 20);
+        $operand2 = random_int(0, 20);
+        $operatorIndex = random_int(0, 2);
+        $arOperator = ["+", "-", "*"];
 
-    $operator = $arOperator[$operatorIndex];
+        $operator = $arOperator[$operatorIndex];
 
-    $correctAnswer = (string) doCalc($operand1, $operand2, $operator);
-    $questionText = "$operand1 $operator $operand2";
+        $correctAnswer = (string) doCalc($operand1, $operand2, $operator);
+        $questionText = "$operand1 $operator $operand2";
 
-    return ['question' => $questionText, 'answer' => $correctAnswer];
+        return ['question' => $questionText, 'answer' => $correctAnswer];
+    };
 }
 
 function doCalc(int $operand1, int $operand2, string $operator): int
@@ -39,7 +41,7 @@ function doCalc(int $operand1, int $operand2, string $operator): int
             $result = $operand1 * $operand2;
             break;
         default:
-            $result = null;
+            $result = 0;
             break;
     }
 

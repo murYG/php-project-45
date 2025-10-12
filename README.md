@@ -4,6 +4,33 @@
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=murYG_php-project-45&metric=bugs)](https://sonarcloud.io/summary/new_code?id=murYG_php-project-45)
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=murYG_php-project-45&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=murYG_php-project-45)
 [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=murYG_php-project-45&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=murYG_php-project-45)
+
+# Brain-games
+
+Test project "BrainGames" for Hexlet "php" course
+
+## Setup
+Setup SSH before clone:
+
+git clone git@github.com:murYG/php-project-45.git
+cd php-project-45
+
+make install
+
+## Launch
+
+make brain-even
+make brain-calc
+make brain-gcd
+make brain-prime
+make brain-progression
+
+## Prerequisites
+    Linux, Macos, WSL
+    PHP >=8.2
+    Make
+    Git
+
 ### Demo
 [![asciicast](https://asciinema.org/a/qByE3cnD8BoNfOL5czxbz2vQF.svg)](https://asciinema.org/a/qByE3cnD8BoNfOL5czxbz2vQF)
 [![asciicast](https://asciinema.org/a/yLBGeWCJCsvBOvcry7aZL3IYF.svg)](https://asciinema.org/a/yLBGeWCJCsvBOvcry7aZL3IYF)
