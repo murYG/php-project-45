@@ -16,6 +16,8 @@ function start(array $game): void
     $result = true;
     $gameNamespace = $game['params'];
     $numberOfGames = 3;
+    $answer = '';
+    $correctAnswer = '';
     for ($i = 1; $i <= $numberOfGames; $i++) {
         $params = call_user_func($gameNamespace);
 
