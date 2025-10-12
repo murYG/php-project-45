@@ -2,7 +2,7 @@
 
 namespace BrainGames\GCD;
 
-function start()
+function start(): void
 {
     $game = [];
     $game['task'] = "Find the greatest common divisor of given numbers.";
@@ -11,7 +11,7 @@ function start()
     \BrainGames\Engine\start($game);
 }
 
-function getParams()
+function getParams(): array
 {
     $operand1 = random_int(1, 50);
     $operand2 = random_int(1, 50);
@@ -22,7 +22,7 @@ function getParams()
     return ['question' => $questionText, 'answer' => $correctAnswer];
 }
 
-function gcd($a, $b)
+function gcd(int $a, int $b): int
 {
     if ($a === 0 || $b === 0) {
         return 0;

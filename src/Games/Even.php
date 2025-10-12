@@ -2,7 +2,7 @@
 
 namespace BrainGames\Even;
 
-function start()
+function start(): void
 {
     $game = [];
     $game['task'] = "Answer \"yes\" if the number is even, otherwise answer \"no\".";
@@ -11,7 +11,7 @@ function start()
     \BrainGames\Engine\start($game);
 }
 
-function getParams()
+function getParams(): array
 {
     $number = random_int(0, 10000);
     $isEven = isEven($number);
@@ -22,7 +22,7 @@ function getParams()
     return ['question' => $questionText, 'answer' => $correctAnswer];
 }
 
-function isEven($number)
+function isEven(int $number): bool
 {
     return $number % 2 === 0;
 }

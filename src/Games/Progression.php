@@ -2,7 +2,7 @@
 
 namespace BrainGames\Progression;
 
-function start()
+function start(): void
 {
     $game = [];
     $game['task'] = "What number is missing in the progression?";
@@ -11,7 +11,7 @@ function start()
     \BrainGames\Engine\start($game);
 }
 
-function getParams()
+function getParams(): array
 {
     $progressionLength = random_int(5, 15);
     $progressionStep = random_int(1, 10);
@@ -27,7 +27,7 @@ function getParams()
     return ['question' => $questionText, 'answer' => $correctAnswer];
 }
 
-function generateProgression($start, $length, $step)
+function generateProgression(int $start, int $length, int $step): array
 {
     $result = [];
 

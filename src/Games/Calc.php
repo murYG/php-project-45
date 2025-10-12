@@ -2,7 +2,7 @@
 
 namespace BrainGames\Calc;
 
-function start()
+function start(): void
 {
     $game = [];
     $game['task'] = "What is the result of the expression?";
@@ -11,7 +11,7 @@ function start()
     \BrainGames\Engine\start($game);
 }
 
-function getParams()
+function getParams(): array
 {
     $operand1 = random_int(0, 20);
     $operand2 = random_int(0, 20);
@@ -26,7 +26,7 @@ function getParams()
     return ['question' => $questionText, 'answer' => $correctAnswer];
 }
 
-function doCalc($operand1, $operand2, $operator)
+function doCalc(int $operand1, int $operand2, string $operator): int
 {
     switch ($operator) {
         case '+':

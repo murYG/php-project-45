@@ -2,7 +2,7 @@
 
 namespace BrainGames\Prime;
 
-function start()
+function start(): void
 {
     $game = [];
     $game['task'] = "Answer \"yes\" if given number is prime. Otherwise answer \"no\".";
@@ -11,7 +11,7 @@ function start()
     \BrainGames\Engine\start($game);
 }
 
-function getParams()
+function getParams(): array
 {
     $number = random_int(0, 50);
     $isPrime = isPrime($number);
@@ -22,7 +22,7 @@ function getParams()
     return ['question' => $questionText, 'answer' => $correctAnswer];
 }
 
-function isPrime($number)
+function isPrime(int $number): bool
 {
     if ($number === 2) {
         return true;
