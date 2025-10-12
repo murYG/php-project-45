@@ -13,10 +13,10 @@ function start()
 
 function getParams()
 {
-    $progressionLength = mt_rand(5, 15);
-    $progressionStep = mt_rand(1, 10);
-    $progressionStart = mt_rand(1, 10);
-    $missingIndex = mt_rand(0, $progressionLength - 1);
+    $progressionLength = rand(5, 15);
+    $progressionStep = rand(1, 10);
+    $progressionStart = rand(1, 10);
+    $missingIndex = rand(0, $progressionLength - 1);
 
     $progression = generateProgression($progressionStart, $progressionLength, $progressionStep);
 

@@ -13,7 +13,7 @@ function start()
 
 function getParams()
 {
-    $number = mt_rand(0, 50);
+    $number = rand(0, 50);
     $isPrime = isPrime($number);
 
     $correctAnswer = $isPrime ? 'yes' : 'no';
