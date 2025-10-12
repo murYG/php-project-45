@@ -18,12 +18,11 @@ cd php-project-45
 make install
 
 ## Launch
-
-make brain-even
-make brain-calc
-make brain-gcd
-make brain-prime
-make brain-progression
+    make brain-even
+    make brain-calc
+    make brain-gcd
+    make brain-prime
+    make brain-progression
 
 ## Prerequisites
     Linux, Macos, WSL
