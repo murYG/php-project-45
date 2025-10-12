@@ -13,8 +13,8 @@ function start()
 
 function getParams()
 {
-    $operand1 = rand(1, 50);
-    $operand2 = rand(1, 50);
+    $operand1 = random_int(1, 50);
+    $operand2 = random_int(1, 50);
 
     $correctAnswer = (string) gcd($operand1, $operand2);
     $questionText = "$operand1 $operand2";

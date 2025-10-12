@@ -13,9 +13,9 @@ function start()
 
 function getParams()
 {
-    $operand1 = rand(0, 20);
-    $operand2 = rand(0, 20);
-    $operatorIndex = rand(0, 2);
+    $operand1 = random_int(0, 20);
+    $operand2 = random_int(0, 20);
+    $operatorIndex = random_int(0, 2);
     $arOperator = ["+", "-", "*"];
 
     $operator = $arOperator[$operatorIndex];

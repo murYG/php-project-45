@@ -13,7 +13,7 @@ function start()
 
 function getParams()
 {
-    $number = rand(0, 10000);
+    $number = random_int(0, 10000);
     $isEven = isEven($number);
 
     $correctAnswer = $isEven ? 'yes' : 'no';
