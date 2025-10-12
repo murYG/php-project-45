@@ -6,7 +6,7 @@ function start()
 {
     $game = [];
     $game['task'] = "Find the greatest common divisor of given numbers.";
-    $game['namespace'] = "\BrainGames\GCD";
+    $game['namespace'] = __NAMESPACE__;
 
     \BrainGames\Engine\start($game);
 }

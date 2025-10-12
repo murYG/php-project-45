@@ -6,7 +6,7 @@ function start()
 {
     $game = [];
     $game['task'] = "Answer \"yes\" if the number is even, otherwise answer \"no\".";
-    $game['namespace'] = "\BrainGames\Even";
+    $game['namespace'] = __NAMESPACE__;
 
     \BrainGames\Engine\start($game);
 }

@@ -6,7 +6,7 @@ function start()
 {
     $game = [];
     $game['task'] = "What number is missing in the progression?";
-    $game['namespace'] = "\BrainGames\Progression";
+    $game['namespace'] = __NAMESPACE__;
 
     \BrainGames\Engine\start($game);
 }

@@ -6,7 +6,7 @@ function start()
 {
     $game = [];
     $game['task'] = "What is the result of the expression?";
-    $game['namespace'] = "\BrainGames\Calc";
+    $game['namespace'] = __NAMESPACE__;
 
     \BrainGames\Engine\start($game);
 }
@@ -30,12 +30,18 @@ function doCalc($operand1, $operand2, $operator)
 {
     switch ($operator) {
         case '+':
-            return $operand1 + $operand2;
+            $result = $operand1 + $operand2;
+            break;
         case '-':
-            return $operand1 - $operand2;
+            $result = $operand1 - $operand2;
+            break;
         case '*':
-            return $operand1 * $operand2;
+            $result = $operand1 * $operand2;
+            break;
+        default:
+            $result = null;
+            break;
     }
 
-    return null;
+    return $result;
 }
