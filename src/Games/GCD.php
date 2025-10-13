@@ -2,18 +2,13 @@
 
 namespace BrainGames\GCD;
 
+use function BrainGames\Engine\start as startGame;
+
 function start(): void
 {
     $game = [];
     $game['task'] = "Find the greatest common divisor of given numbers.";
-    $game['params'] = getParams();
-
-    \BrainGames\Engine\start($game);
-}
-
-function getParams(): object
-{
-    return function (): array {
+    $game['params'] = function (): array {
         $operand1 = random_int(1, 50);
         $operand2 = random_int(1, 50);
 
@@ -22,6 +17,8 @@ function getParams(): object
 
         return ['question' => $questionText, 'answer' => $correctAnswer];
     };
+
+    startGame($game);
 }
 
 function gcd(int $a, int $b): int

@@ -2,18 +2,13 @@
 
 namespace BrainGames\Calc;
 
+use function BrainGames\Engine\start as startGame;
+
 function start(): void
 {
     $game = [];
     $game['task'] = "What is the result of the expression?";
-    $game['params'] = getParams();
-
-    \BrainGames\Engine\start($game);
-}
-
-function getParams(): object
-{
-    return function (): array {
+    $game['params'] = function (): array {
         $operand1 = random_int(0, 20);
         $operand2 = random_int(0, 20);
         $operatorIndex = random_int(0, 2);
@@ -26,6 +21,8 @@ function getParams(): object
 
         return ['question' => $questionText, 'answer' => $correctAnswer];
     };
+
+    startGame($game);
 }
 
 function doCalc(int $operand1, int $operand2, string $operator): int
@@ -41,8 +38,7 @@ function doCalc(int $operand1, int $operand2, string $operator): int
             $result = $operand1 * $operand2;
             break;
         default:
-            $result = 0;
-            break;
+            die("Unknown operation\n");
     }
 
     return $result;

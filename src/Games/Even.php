@@ -2,26 +2,23 @@
 
 namespace BrainGames\Even;
 
+use function BrainGames\Engine\start as startGame;
+
 function start(): void
 {
     $game = [];
     $game['task'] = "Answer \"yes\" if the number is even, otherwise answer \"no\".";
-    $game['params'] = getParams();
-
-    \BrainGames\Engine\start($game);
-}
-
-function getParams(): object
-{
-    return function (): array {
+    $game['params'] = function (): array {
         $number = random_int(0, 10000);
         $isEven = isEven($number);
 
         $correctAnswer = $isEven ? 'yes' : 'no';
-        $questionText = "$number";
+        $questionText = (string) $number;
 
         return ['question' => $questionText, 'answer' => $correctAnswer];
     };
+
+    startGame($game);
 }
 
 function isEven(int $number): bool

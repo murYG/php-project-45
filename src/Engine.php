@@ -7,19 +7,23 @@ use function cli\prompt;
 
 function start(array $game): void
 {
+    define("NUMBER_OF_GAMES", 3);
+
+    if (!is_callable($game['params'])) {
+        line('Invalid parameters');
+        return;
+    }
+
     line('Welcome to the Brain Games!');
     $name = prompt('May I have your name?', false, " ");
     line("Hello, %s!", $name);
 
     line($game['task']);
 
-    $result = true;
-    $gameNamespace = $game['params'];
-    $numberOfGames = 3;
     $answer = '';
     $correctAnswer = '';
-    for ($i = 1; $i <= $numberOfGames; $i++) {
-        $params = call_user_func($gameNamespace);
+    for ($i = 1; $i <= NUMBER_OF_GAMES; $i++) {
+        $params = call_user_func($game['params']);
 
         $questionText = $params['question'];
         $correctAnswer = $params['answer'];
@@ -28,17 +32,13 @@ function start(array $game): void
         $answer = prompt('Your answer');
 
         if ($answer !== $correctAnswer) {
-            $result = false;
-            break;
+            line("'$answer' is wrong answer ;(. Correct answer was '$correctAnswer'.");
+            line("Let's try again, $name!");
+            return;
         }
 
         line("Correct!");
     }
 
-    if ($result) {
-        line("Congratulations, $name!");
-    } else {
-        line("'$answer' is wrong answer ;(. Correct answer was '$correctAnswer'.");
-        line("Let's try again, $name!");
-    }
+    line("Congratulations, $name!");
 }

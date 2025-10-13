@@ -2,26 +2,23 @@
 
 namespace BrainGames\Prime;
 
+use function BrainGames\Engine\start as startGame;
+
 function start(): void
 {
     $game = [];
     $game['task'] = "Answer \"yes\" if given number is prime. Otherwise answer \"no\".";
-    $game['params'] = getParams();
-
-    \BrainGames\Engine\start($game);
-}
-
-function getParams(): object
-{
-    return function (): array {
+    $game['params'] = function (): array {
         $number = random_int(0, 50);
         $isPrime = isPrime($number);
 
         $correctAnswer = $isPrime ? 'yes' : 'no';
-        $questionText = "$number";
+        $questionText = (string) $number;
 
         return ['question' => $questionText, 'answer' => $correctAnswer];
     };
+
+    startGame($game);
 }
 
 function isPrime(int $number): bool
