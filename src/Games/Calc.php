@@ -6,6 +6,7 @@ use function BrainGames\Engine\start as startGame;
 
 function start(): void
 {
+    $game = [];
     $game['task'] = "What is the result of the expression?";
     $game['params'] = function (): array {
         $operand1 = random_int(0, 20);

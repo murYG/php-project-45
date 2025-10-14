@@ -6,6 +6,7 @@ use function BrainGames\Engine\start as startGame;
 
 function start(): void
 {
+    $game = [];
     $game['task'] = "What number is missing in the progression?";
     $game['params'] = function (): array {
         $progressionLength = random_int(5, 15);

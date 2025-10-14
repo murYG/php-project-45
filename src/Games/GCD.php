@@ -6,6 +6,7 @@ use function BrainGames\Engine\start as startGame;
 
 function start(): void
 {
+    $game = [];
     $game['task'] = "Find the greatest common divisor of given numbers.";
     $game['params'] = function (): array {
         $operand1 = random_int(1, 50);

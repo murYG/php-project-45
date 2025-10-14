@@ -6,6 +6,7 @@ use function BrainGames\Engine\start as startGame;
 
 function start(): void
 {
+    $game = [];
     $game['task'] = "Answer \"yes\" if given number is prime. Otherwise answer \"no\".";
     $game['params'] = function (): array {
         $number = random_int(0, 50);
