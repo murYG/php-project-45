@@ -5,24 +5,20 @@ namespace BrainGames\Engine;
 use function cli\line;
 use function cli\prompt;
 
+const NUMBER_OF_GAMES = 3;
+
 function start(array $game): void
 {
-    define("NUMBER_OF_GAMES", 3);
-
-    if (!is_callable($game['params'])) {
-        line('Invalid parameters');
-        return;
-    }
-
     line('Welcome to the Brain Games!');
     $name = prompt('May I have your name?', false, " ");
     line("Hello, %s!", $name);
 
     line($game['task']);
 
-    $answer = '';
-    $correctAnswer = '';
     for ($i = 1; $i <= NUMBER_OF_GAMES; $i++) {
+        if (!is_callable($game['params'])) {
+            exit("Error: Invalid parameters\n");
+        }
         $params = call_user_func($game['params']);
 
         $questionText = $params['question'];

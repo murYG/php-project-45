@@ -6,7 +6,6 @@ use function BrainGames\Engine\start as startGame;
 
 function start(): void
 {
-    $game = [];
     $game['task'] = "What is the result of the expression?";
     $game['params'] = function (): array {
         $operand1 = random_int(0, 20);
@@ -38,7 +37,7 @@ function doCalc(int $operand1, int $operand2, string $operator): int
             $result = $operand1 * $operand2;
             break;
         default:
-            die("Unknown operation\n");
+            exit("Error: Unknown operation\n");
     }
 
     return $result;

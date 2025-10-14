@@ -6,7 +6,6 @@ use function BrainGames\Engine\start as startGame;
 
 function start(): void
 {
-    $game = [];
     $game['task'] = "Answer \"yes\" if the number is even, otherwise answer \"no\".";
     $game['params'] = function (): array {
         $number = random_int(0, 10000);
