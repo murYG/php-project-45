@@ -6,9 +6,8 @@ use function BrainGames\Engine\start as startGame;
 
 function start(): void
 {
-    $game = [];
-    $game['task'] = "Answer \"yes\" if the number is even, otherwise answer \"no\".";
-    $game['params'] = function (): array {
+    $task = "Answer \"yes\" if the number is even, otherwise answer \"no\".";
+    $getParams = function (): array {
         $number = random_int(0, 10000);
         $isEven = isEven($number);
 
@@ -18,7 +17,7 @@ function start(): void
         return ['question' => $questionText, 'answer' => $correctAnswer];
     };
 
-    startGame($game);
+    startGame($task, $getParams);
 }
 
 function isEven(int $number): bool

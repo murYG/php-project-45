@@ -6,9 +6,8 @@ use function BrainGames\Engine\start as startGame;
 
 function start(): void
 {
-    $game = [];
-    $game['task'] = "What is the result of the expression?";
-    $game['params'] = function (): array {
+    $task = "What is the result of the expression?";
+    $getParams = function (): array {
         $operand1 = random_int(0, 20);
         $operand2 = random_int(0, 20);
         $operatorIndex = random_int(0, 2);
@@ -22,7 +21,7 @@ function start(): void
         return ['question' => $questionText, 'answer' => $correctAnswer];
     };
 
-    startGame($game);
+    startGame($task, $getParams);
 }
 
 function doCalc(int $operand1, int $operand2, string $operator): int
